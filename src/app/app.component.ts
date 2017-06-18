@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { DatePickerComponent } from 'ng2-date-picker';
 
 @Component({
@@ -6,7 +6,7 @@ import { DatePickerComponent } from 'ng2-date-picker';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   @ViewChild('birthdate') datePicker: DatePickerComponent;
 
   config = {
@@ -16,7 +16,13 @@ export class AppComponent {
 
   selectedDate: Date;
 
+  ngOnInit() {
+    console.log(this.datePicker);
+  }
+
   open() {
+    console.log(this.datePicker);
+    console.log(this.datePicker.api);
     this.datePicker.api.open();
   }
 }
