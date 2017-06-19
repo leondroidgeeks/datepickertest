@@ -1,8 +1,24 @@
 <div class="container">
   <div class="col-md-6 col-md-offset-3">
     <div class="input-group" style="margin-top:50px;">
-      <input class="form-control" #birthdate id="birthdate" placeholder="YYYY-MM-DD" [(ngModel)]="selectedDate" [dpDayPicker]="config" theme="dp-material">
+      <input class="form-control" #dateDirectivePicker="dpDayPicker" id="birthdate" placeholder="YYYY-MM-DD" [(ngModel)]="selectedDate" [dpDayPicker]="config" theme="dp-material">
       <span class="input-group-addon" id="basic-addon1" (click)="open()"><span class="glyphicon glyphicon-calendar"></span></span>
     </div>
+    <!-- <form [formGroup]="formGroup">
+         <input [dpDayPicker]="config"
+               name="datePicker"
+               #dateDirectivePicker="dpDayPicker"
+               [theme]="material ? 'dp-material' : ''"
+               formControlName="datePicker"
+               [placeholder]="placeholder"
+               (ngModelChange)="date = $event; log($event)"
+               [required]="required"
+               />
+         <div class="dp-validations">
+           <div id="reactiveRequiredValidation" *ngIf="formGroup.get('datePicker').hasError('required') && formGroup.get('datePicker').touched">required</div>
+           <div id="reactiveMinDateValidation" *ngIf="formGroup.get('datePicker').hasError('minDate') && formGroup.get('datePicker').touched">minDate invalid</div>
+           <div id="reactiveMaxDateValidation" *ngIf="formGroup.get('datePicker').hasError('maxDate') && formGroup.get('datePicker').touched">maxDate invalid</div>
+         </div>
+       </form> -->
   </div>
 </div>

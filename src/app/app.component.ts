@@ -1,4 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { DatePickerComponent } from 'ng2-date-picker';
 
 @Component({
@@ -7,7 +8,7 @@ import { DatePickerComponent } from 'ng2-date-picker';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  @ViewChild('birthdate') datePicker: DatePickerComponent;
+  @ViewChild('dateDirectivePicker') datePicker: DatePickerComponent;
 
   config = {
     firstDayOfWeek: "mo",
@@ -15,6 +16,13 @@ export class AppComponent implements OnInit {
   };
 
   selectedDate: Date;
+
+  constructor(private fb: FormBuilder) {
+  }
+
+  public formGroup = this.fb.group({
+    datePicker: ["", Validators.required]
+  });
 
   ngOnInit() {
     console.log(this.datePicker);
